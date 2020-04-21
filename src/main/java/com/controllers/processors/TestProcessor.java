@@ -37,7 +37,7 @@ public class TestProcessor extends Processor {
             }
 
             if ((int) request.getSession().getAttribute("questionCount") == 5) {
-                return new ProcessorResult("/finished", "", false);
+                return new ProcessorResult("/finished", "", false); //Тут закончилось время, не смог закончить
             }
         }
 
