@@ -13,15 +13,15 @@
     <title>Main Page</title>
   </head>
   <body>
-  <h1>Hello - <%=request.getParameter("username")%></h1>
-  <%
-    DAOConnection connection = OracleDAOConnection.getInstance();
-    Question question = connection.getRandomQuestion();
-  %>
-  <h1><%=question.getQuestion()%></h1>
-  <form action="/test?username=<%=request.getParameter("username")%>&questionId=<%=question.getId()%>" method="post">
-    <input type="text" name="userAnswer" placeholder="Your answer">
-    <input type="submit" value="Answer">
-  </form>
+    <h1>Hello - <%=request.getParameter("username")%></h1>
+    <%
+      DAOConnection connection = OracleDAOConnection.getInstance();
+      Question question = connection.getRandomQuestion();
+    %>
+    <h1><%=question.getQuestion()%></h1>
+    <form action="/test?username=<%=request.getParameter("username")%>&questionId=<%=question.getId()%>" method="post">
+      <input type="text" name="userAnswer" placeholder="Your answer">
+      <input type="submit" value="Answer">
+    </form>
   </body>
 </html>

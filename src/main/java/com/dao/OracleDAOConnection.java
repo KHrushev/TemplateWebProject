@@ -107,17 +107,20 @@ public class OracleDAOConnection implements DAOConnection {
 
             int index = (int) (Math.random()*11);
 
+            System.out.println(index);
+
             statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT question FROM QUESTIONS");
+            resultSet = statement.executeQuery("SELECT * FROM QUESTIONS");
 
             while (resultSet.next()) {
-                if (resultSet.getInt(1) == index) {
+                if (resultSet.getInt("id") == index) {
                     question.setId(resultSet.getInt("id"));
                     question.setQuestion(resultSet.getString("question"));
                     question.setAnswer(resultSet.getString("answer"));
                     question.setPoints(resultSet.getInt("points"));
                 }
             }
+            System.out.println(question);
 
             return question;
         } catch (SQLException e) {
